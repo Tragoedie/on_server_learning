@@ -8,3 +8,7 @@ def squirrel(N):
         while factorial > 9:
             factorial = factorial // 10
         return factorial
+
+
+# N = 1
+# print(squirrel(N))
