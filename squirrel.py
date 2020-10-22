@@ -1,5 +1,5 @@
 def squirrel(N):
-    if N <= 0:
+    if N < 0:
         return -1
     else:
         factorial = 1
