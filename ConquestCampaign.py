@@ -9,7 +9,7 @@ def ConquestCampaign (N, M, L, battalion):
         coordinate_x = battalion[a * 2]
         coordinate_y = battalion[a * 2 + 1]
         kingdom_s[coordinate_x - 1][coordinate_y - 1] = 1
-    print(kingdom_s)
+    # print(kingdom_s)
     day = 1
     for a in range(N):
         for b in range(M):
