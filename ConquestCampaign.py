@@ -30,11 +30,13 @@ def ConquestCampaign (N, M, L, battalion):
                                 kingdom_s[x - 1][y] = 1
                             if x + 1 < N and kingdom_s[x+1][y] == 0:
                                 kingdom_s[x+1][y] = 1
+    return day
+
 
                 # print(day)
                 # print(kingdom_s)
-# N = 10
-# M = 5
-# L = 1
-# battalion = [1, 1]
-# ConquestCampaign(N, M, L, battalion)
+# N = 3
+# M = 4
+# L = 3
+# battalion = [2, 2, 2, 2, 3, 4]
+# print(ConquestCampaign(N, M, L, battalion))
