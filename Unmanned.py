@@ -1,5 +1,7 @@
 def Unmanned(L, N, track):
     car_stop = track[0][0]
+    if L <= track[0][0]:
+        return L
     for i in range(N):
         traffic_light = track[i][1]
         counter = False
@@ -21,4 +23,4 @@ def Unmanned(L, N, track):
     return car_stop
 
 
-# Unmanned(10, 3, [[3, 5, 5], [5, 2, 2], [8, 4, 6]])
+# print(Unmanned(10, 2, [[11,5,5],[15,2,2]]))
