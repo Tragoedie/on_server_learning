@@ -33,10 +33,9 @@ def TankRush(H1, W1, S1, H2, W2, S2):
                             break
                     if xchange is False:
                         break
-    if xchange is True:
-        return True
-    else:
-        return False
+                if xchange is True:
+                    return True
+    return False
 
 
-# print(TankRush(3, 4, '1234 2345 0987', 2, 2, '34 00'))
+# print(TankRush(4, 6, '029402 560202 029694 780288',2,2,'02 94'))
