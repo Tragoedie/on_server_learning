@@ -29,13 +29,14 @@ def ShopOLAP(N, items):
     change = False
     while change is False:  # count the number of identical products
         change = True
-        for i in range(len(item_s)):
-            for j in range(1 + i, len(item_s) - 1 - i):
+        for i in range(len(item_s)-1):
+            for j in range(1 + i, len(item_s)):
                 if item_s[i] == item_s[j]:
                     change = False
                     amount_s[i][0] = int(amount_s[i][0]) + int(amount_s[j][0])
                     amount_s.pop(j)
                     item_s.pop(j)
+                    break
     change = False
     while change is False:  # sort quantity in ascending order
         change = True
@@ -72,7 +73,9 @@ def ShopOLAP(N, items):
         result.append(b)
     return result
 
-# N = 5
+# N = 2
 # items = ['платье1 5', 'сумка32 6', 'платье3 5', 'платье2 5', 'сумка23 3', 'сумка128 2', 'сумка126 2']
 # items = ['платье1 5', 'сумка32 2', 'платье1 1', 'сумка23 2', 'сумка128 4']
+# items = ['платье1 5', 'платье1 5', 'платье1 5']
 # print(ShopOLAP(N, items))
+# print(ShopOLAP(8, ["123 5", "32 3", "124 5", "128 1", "32 2", "23 4", "128 4", "128 1"]))
