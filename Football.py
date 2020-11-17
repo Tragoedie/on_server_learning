@@ -4,7 +4,7 @@ def Football(F, N):
         if F[i] > F[i+1]:
             change = False
     if change:
-        return True
+        return False
     index_x = -1
     index_y = -1
     counter = 0
