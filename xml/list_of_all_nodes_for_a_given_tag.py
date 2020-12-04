@@ -10,11 +10,15 @@ def list_of_nodes(tag, root):
             if item.attrib != {}:
                 b.append(item.attrib)
             b.append(item.text)
-        if b != []:
+        if b:
             massive.append(b)
     return massive
 
 
 xml_1 = ETree.parse('demo.xml')
 root = xml_1.getroot()
-print(list_of_nodes('language', root))
+result = list_of_nodes('', root)
+if not result:
+    print("No nodes with the given tag")
+else:
+    print(result)
