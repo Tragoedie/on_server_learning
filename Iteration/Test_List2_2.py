@@ -41,6 +41,19 @@ class List2_2_tests(unittest.TestCase):
                                    158456325028528675187087900672, 316912650057057350374175801344,
                                    633825300114114700748351602688])
 
+    def test_List2_2_3(self):
+        massive = []
+        count = 0
+        N = 5
+        self.l2_2 = List2_2(N, True)
+        for i in self.l2_2:
+            if count < N + N/2:
+                massive.append(i)
+                count += 1
+            else:
+                break
+        self.assertEqual(massive, [1, 2, 4, 8, 16, 1, 2, 4])
+
 
 if __name__ == '__main__':
     unittest.main()
