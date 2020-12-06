@@ -54,6 +54,14 @@ class List2_2_tests(unittest.TestCase):
                 break
         self.assertEqual(massive, [1, 2, 4, 8, 16, 1, 2, 4])
 
+    def test_List2_2_4(self):
+        massive = []
+        N = 5
+        self.l2_2 = List2_2(N, True)
+        for i in range(N + N//2):
+            massive.append(next(self.l2_2))
+        self.assertEqual(massive, [1, 2, 4, 8, 16, 1, 2])
+        
 
 if __name__ == '__main__':
     unittest.main()
