@@ -10,18 +10,25 @@ def create_list(len_list):
     return list_number
 
 
-def for_counter(j, massive, N, res):
+def for_counter(j, massive, N, results_massive):
     sum = 0
     for i in range(j, len(massive), N):
         sum += massive[i]
         time.sleep(0.05)
-    res.append(sum)
+    results_massive.append(sum)
 
 
-def counter(massive, N, results):
+def counter(massive, N):
+    results = {}
+    results_massive = []
     for j in range(N):
-        count_number = 'Count №' + str(j+1)
-        t = Thread(target=for_counter, name=count_number, args=(j, massive, N, results))
-        t.start()
-    while t.is_alive():
-        time.sleep(0.1)
+        count_number = 'Count №' + str(j + 1)
+        results[j] = Thread(target=for_counter, name=count_number, args=(j, massive, N, results_massive))
+        results[j].start()
+    for value in results.values():
+        while value.is_alive():
+            time.sleep(0.1)
+    total_sum_conc = 0
+    for x in range(len(results_massive)):
+        total_sum_conc += results_massive[x]
+    return total_sum_conc
