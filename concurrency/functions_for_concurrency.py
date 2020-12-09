@@ -25,10 +25,17 @@ def counter(massive, N):
         count_number = 'Count №' + str(j + 1)
         results[j] = Thread(target=for_counter, name=count_number, args=(j, massive, N, results_massive))
         results[j].start()
-    for value in results.values():
-        while value.is_alive():
-            time.sleep(0.1)
+    xchange = True
+    while xchange:
+        xchange = False
+        for value in results.values():
+            if value.is_alive():
+                xchange = True
+        if xchange:
+            time.sleep(0.05)
+    print(results)
     total_sum_conc = 0
+
     for x in range(len(results_massive)):
         total_sum_conc += results_massive[x]
     return total_sum_conc
