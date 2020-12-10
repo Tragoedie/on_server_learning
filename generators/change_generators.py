@@ -10,10 +10,6 @@ def long_process(id, n):
 
 
 def long_process_generator(massive):
-    max_number = massive[0]
-    for i in range(len(massive)):
-        if massive[i] > max_number:
-            max_number = massive[i]
     R = {}
     R_total = {}
     for j in range(len(massive)):
@@ -21,10 +17,14 @@ def long_process_generator(massive):
         Id = long_process(id_number, massive[j])
         R[id_number] = Id
         R_total[id_number] = None
-    for y in range(max_number):
+    xchange = True
+    while xchange:
+        xchange = False
         for x in range(len(R)):
             id_number = 'Id' + str(x + 1)
-            if R_total[id_number] is None: R_total[id_number] = next(R[id_number])
+            if R_total[id_number] is None:
+                R_total[id_number] = next(R[id_number])
+                xchange = True
     return R_total
 
 
