@@ -1,0 +1,10 @@
+Your nickname is Tragoedia!
+Your class is Mage.
+Your specialization: Priest.
+Your characteristics:
+Strength :3
+Agility: 5
+Intelligence: 10
+Ñhronicle of your character: It's my priest!
+
+
