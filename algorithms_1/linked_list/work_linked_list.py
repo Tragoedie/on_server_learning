@@ -40,7 +40,7 @@ class LinkedList:
             node = node.next
         return massive
 
-    def delete(self, val, all):
+    def delete(self, val, all=False):
         node = self.head
         if node is None:
             return
@@ -83,6 +83,8 @@ class LinkedList:
             self.tail = self.head = newNode
             return
         if afterNode is None:
+            newNode.next = self.head
+            self.head = newNode
             return
         newNode.next = afterNode.next
         afterNode.next = newNode
