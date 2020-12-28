@@ -12,8 +12,8 @@ def massive_of_value(s_list):
 
 
 def sum_of_linked_list(lin_list_1, lin_list_2):
-    result_massive = []
     if lin_list_1.len() == lin_list_2.len():
+        result_massive = []
         list_1 = massive_of_value(lin_list_1)
         list_2 = massive_of_value(lin_list_2)
         for i in range(len(list_1)):
