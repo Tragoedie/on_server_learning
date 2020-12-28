@@ -13,28 +13,28 @@ def massive_of_value(s_list):
 
 def sum_of_linked_list(lin_list_1, lin_list_2):
     if lin_list_1.len() == lin_list_2.len():
-        result_massive = []
+        result_massive = LinkedList()
         list_1 = massive_of_value(lin_list_1)
         list_2 = massive_of_value(lin_list_2)
         for i in range(len(list_1)):
-            result_massive.append(list_1[i] + list_2[i])
+            result_massive.add_in_tail(Node(list_1[i] + list_2[i]))
         return result_massive
 
 
 s_list_1 = LinkedList()
-s_list_1.add_in_tail(Node(1))
-s_list_1.add_in_tail(Node(1))
-s_list_1.add_in_tail(Node(1))
+s_list_1.add_in_tail(Node('1'))
+s_list_1.add_in_tail(Node(2))
+s_list_1.add_in_tail(Node('3'))
 
 
 s_list_2 = LinkedList()
-s_list_2.add_in_tail(Node(1))
-s_list_2.add_in_tail(Node(1))
-s_list_2.add_in_tail(Node(1))
+s_list_2.add_in_tail(Node('1'))
+s_list_2.add_in_tail(Node(2))
+s_list_2.add_in_tail(Node('3'))
 
 
 summ = sum_of_linked_list(s_list_1, s_list_2)
 if summ is None:
     print('The lengths of linked lists are not equal')
 else:
-    print(summ)
+    summ.print_all_nodes()
