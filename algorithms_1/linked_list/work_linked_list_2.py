@@ -107,17 +107,3 @@ class LinkedList2:
         while node is not None:
             print(node.value)
             node = node.next
-
-s_list = LinkedList2()
-s_list.add_in_tail(Node(55))
-s_list.add_in_tail(Node(55))
-s_list.add_in_tail(Node(55))
-s_list.delete(55, True)
-s_list.print_all_nodes()
-print('~~~~~~~~~~~7~~~~~~~~~~~')
-s_list = LinkedList2()
-s_list.add_in_tail(Node(55))
-s_list.add_in_tail(Node(55))
-s_list.add_in_tail(Node(55))
-s_list.delete(55, False)
-s_list.print_all_nodes()
