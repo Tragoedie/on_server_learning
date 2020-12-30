@@ -41,10 +41,3 @@ class LinkedList2_with_dummy(LinkedList2):
         else:
             self.head = self.head_fake.next
             self.tail = self.tail_fake.prev
-
-s_list = LinkedList2_with_dummy()
-s_list.add_in_tail(Node_with_fake(55))
-s_list.add_in_tail(Node_with_fake(55))
-s_list.add_in_tail(Node_with_fake(55))
-s_list.deleted(55, False)
-s_list.print_all_nodes()
