@@ -43,17 +43,19 @@ class LinkedList2:
             return
         while node is not None:
             if node.value == val:
-                if self.head == self.tail:
-                    self.head = self.tail = None
+                if self.len() == 1:
+                    self.clean()
+                    return
                 if node.prev is None:
                     self.head = node.next
                     node.next.prev = None
-                elif node.next is None:
-                    self.tail = node.prev
-                    node.prev.next = None
                 else:
                     node.next.prev = node.prev
-                    node.prev.next = node.next
+                    if node.next is None:
+                        self.tail = node.prev
+                        node.prev.next = None
+                    else:
+                        node.prev.next = node.next
                 if all is False:
                     return
             node = node.next
@@ -100,10 +102,22 @@ class LinkedList2:
             self.head = newNode
             newNode.prev = None
 
-
     def print_all_nodes(self):
         node = self.head
         while node is not None:
             print(node.value)
             node = node.next
 
+s_list = LinkedList2()
+s_list.add_in_tail(Node(55))
+s_list.add_in_tail(Node(55))
+s_list.add_in_tail(Node(55))
+s_list.delete(55, True)
+s_list.print_all_nodes()
+print('~~~~~~~~~~~7~~~~~~~~~~~')
+s_list = LinkedList2()
+s_list.add_in_tail(Node(55))
+s_list.add_in_tail(Node(55))
+s_list.add_in_tail(Node(55))
+s_list.delete(55, False)
+s_list.print_all_nodes()
