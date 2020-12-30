@@ -39,8 +39,6 @@ class LinkedList2:
 
     def delete(self, val, all=False):
         node = self.head
-        if node is None:
-            return
         while node is not None:
             if node.value == val:
                 if self.len() == 1:
@@ -48,14 +46,12 @@ class LinkedList2:
                     return
                 if node.prev is None:
                     self.head = node.next
-                    node.next.prev = None
+                else:
+                    node.prev.next = node.next
+                if node.next is None:
+                    self.tail = node.prev
                 else:
                     node.next.prev = node.prev
-                    if node.next is None:
-                        self.tail = node.prev
-                        node.prev.next = None
-                    else:
-                        node.prev.next = node.next
                 if all is False:
                     return
             node = node.next
