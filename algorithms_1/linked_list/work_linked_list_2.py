@@ -75,7 +75,7 @@ class LinkedList2:
             self.head = self.tail = newNode
         elif afterNode is None:
             self.tail.next = newNode
-            newNode = self.tail
+            self.tail = newNode
         else:
             newNode.next = afterNode.next
             afterNode.next = newNode
