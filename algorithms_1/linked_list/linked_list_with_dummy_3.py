@@ -23,7 +23,7 @@ class LinkedList2:
 
     def fake_function(self):
         if self.head_fake.next == self.tail_fake:
-            self.clean
+            self.clean()
         else:
             self.head = self.head_fake.next
             self.tail = self.tail_fake.prev
@@ -94,6 +94,3 @@ class LinkedList2:
         while node.fake is False:
             print(node.value)
             node = node.next
-
-
-
