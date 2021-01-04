@@ -53,7 +53,14 @@ class DynArray:
                 self.array[j] = self.array[j+1]
             self.count -= 1
         if self.count < (0.5 * self.capacity):
-            self.resize(int(self.capacity/1.5))
+            if self.capacity == 16:
+                return
+            new_capacity = int(self.capacity/1.5)
+            if new_capacity > 16:
+                self.resize(new_capacity)
+            elif new_capacity < 16:
+                new_capacity = 16
+                self.resize(new_capacity)
 
     def print_all(self):
         for i in range(self.count):
