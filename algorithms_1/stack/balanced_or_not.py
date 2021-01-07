@@ -11,10 +11,7 @@ def balance_check(line):
                 return False
             else:
                 stack.pop()
-    if stack.size() == 0:
-        return True
-    else:
-        return False
+    return stack.size() == 0
 
 
 line_brackets_1 = '(()((())()))'
