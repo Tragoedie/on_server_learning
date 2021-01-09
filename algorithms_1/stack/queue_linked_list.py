@@ -35,3 +35,9 @@ class Queue:
             node = node.next
             length += 1
         return length
+
+    def print_all_nodes(self):
+        node = self.head
+        while node is not None:
+            print(node.value)
+            node = node.next
