@@ -1,4 +1,4 @@
-from on_server_learning.algorithms_1.stack.Stack import *
+from on_server_learning.algorithms_1.stack_queue_deque.Stack import *
 
 
 def balance_check(line):

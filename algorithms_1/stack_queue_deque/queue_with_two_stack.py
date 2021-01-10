@@ -1,4 +1,4 @@
-from on_server_learning.algorithms_1.stack.Stack import Stack
+from on_server_learning.algorithms_1.stack_queue_deque.Stack import Stack
 
 
 class Queue:

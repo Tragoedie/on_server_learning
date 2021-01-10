@@ -1,4 +1,4 @@
-from on_server_learning.algorithms_1.stack.queue_linked_list import Queue
+from on_server_learning.algorithms_1.stack_queue_deque.queue_linked_list import Queue
 
 
 def rotation_against_the_clock(queue, N):
