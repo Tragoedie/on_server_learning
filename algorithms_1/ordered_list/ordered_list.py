@@ -60,7 +60,8 @@ class OrderedList:
         while node is not None:
             if node.value == val:
                 if self.len() == 1:
-                    self.clean()
+                    self.head = None
+                    self.tail = None
                     return
                 if node.prev is None:
                     self.head = node.next
@@ -115,4 +116,3 @@ class OrderedStringList(OrderedList):
             return 0
         else:
             return 1
-
