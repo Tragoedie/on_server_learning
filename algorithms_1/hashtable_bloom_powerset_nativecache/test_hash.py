@@ -1,5 +1,5 @@
 import unittest
-from on_server_learning.algorithms_1.hash_table.hash_table import HashTable
+from on_server_learning.algorithms_1.hashtable_bloom_powerset_nativecache.hash_table import HashTable
 
 
 class Test_hash_table(unittest.TestCase):

@@ -1,5 +1,5 @@
 import unittest
-from on_server_learning.algorithms_1.hash_table.native_dictionary import NativeDictionary
+from on_server_learning.algorithms_1.hashtable_bloom_powerset_nativecache.native_dictionary import NativeDictionary
 
 
 class Test_hash_table(unittest.TestCase):
