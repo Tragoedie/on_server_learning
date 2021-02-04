@@ -72,6 +72,7 @@ class BST:
             return False
         if self.Count() == 1:
             self.Root = None
+            return
         if node.Node.RightChild is None:
             if node.Node.LeftChild is not None:
                 node.Node.LeftChild.Parent = node.Node.Parent

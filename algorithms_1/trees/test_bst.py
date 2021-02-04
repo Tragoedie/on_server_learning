@@ -139,6 +139,13 @@ class Test_SimpleTree(unittest.TestCase):
         self.assertEqual(tree.Root.LeftChild.NodeValue, 4)
         self.assertFalse(tree.FindNodeByKey(10).NodeHasKey)
 
+    def test_del_one_root(self):
+        tree = BST(None)
+        Child_1 = (10, 10)
+        tree.AddKeyValue(Child_1[0], Child_1[1])
+        tree.DeleteNodeByKey(10)
+        self.assertEqual(tree.Root, None)
+
     def test_del_RightChild(self):
         tree = BST(None)
         Child_1 = (10, 10)
@@ -224,6 +231,21 @@ class Test_SimpleTree(unittest.TestCase):
         self.assertEqual(tree.Root.LeftChild.LeftChild, None)
         self.assertEqual(tree.Root.LeftChild.RightChild, None)
         self.assertFalse(tree.FindNodeByKey(2).NodeHasKey)
+
+    def test_del_root_without_right(self):
+        tree = BST(None)
+        Child_1 = (10, 10)
+        Child_2 = (4, 4)
+        Child_3 = (2, 2)
+        tree.AddKeyValue(Child_1[0], Child_1[1])
+        tree.AddKeyValue(Child_2[0], Child_2[1])
+        tree.AddKeyValue(Child_3[0], Child_3[1])
+        tree.DeleteNodeByKey(10)
+        self.assertEqual(tree.Root.NodeValue, 4)
+        self.assertEqual(tree.Root.LeftChild.NodeValue, 2)
+        self.assertEqual(tree.Root.RightChild, None)
+        self.assertFalse(tree.FindNodeByKey(10).NodeHasKey)
+
 
 if __name__ == '__main__':
     unittest.main()
