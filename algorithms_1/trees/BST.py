@@ -70,6 +70,8 @@ class BST:
         node = self.FindNodeByKey(key)
         if node.NodeHasKey is False:
             return False
+        if self.Count == 1:
+            self.Root = None
         if node.Node.RightChild is None:
             if node.Node.LeftChild is not None:
                 node.Node.LeftChild.Parent = node.Node.Parent
