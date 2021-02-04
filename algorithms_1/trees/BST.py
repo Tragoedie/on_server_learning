@@ -12,7 +12,7 @@ class BSTFind:  # промежуточный результат поиска
 
     def __init__(self):
         self.Node = None  # None если
-        # в дереве вообще нету узлов
+        # в дереве вообще нет узлов
         self.NodeHasKey = False  # True если узел найден
         self.ToLeft = False  # True, если родительскому узлу надо
         # добавить новый узел левым потомком
@@ -110,35 +110,3 @@ class BST:
         count += self.putNode(0, node.RightChild)
         return count
 
-tree = BST(None)
-Child_1 = (10, 10)
-Child_2 = (4, 4)
-Child_3 = (2, 2)
-Child_4 = (6, 6)
-Child_5 = (20, 20)
-Child_6 = (14, 14)
-Child_7 = (12, 12)
-Child_8 = (17, 17)
-Child_9 = (18, 18)
-Child_10 = (25, 25)
-Child_11 = (23, 23)
-Child_12 = (22, 22)
-Child_13 = (24, 24)
-Child_14 = (28, 28)
-Child_15 = (13, 13)
-tree.AddKeyValue(Child_1[0], Child_1[1])
-tree.AddKeyValue(Child_2[0], Child_2[1])
-tree.AddKeyValue(Child_3[0], Child_3[1])
-tree.AddKeyValue(Child_4[0], Child_4[1])
-tree.AddKeyValue(Child_5[0], Child_5[1])
-tree.AddKeyValue(Child_6[0], Child_6[1])
-tree.AddKeyValue(Child_7[0], Child_7[1])
-tree.AddKeyValue(Child_8[0], Child_8[1])
-tree.AddKeyValue(Child_9[0], Child_9[1])
-tree.AddKeyValue(Child_10[0], Child_10[1])
-tree.AddKeyValue(Child_11[0], Child_11[1])
-tree.AddKeyValue(Child_12[0], Child_12[1])
-tree.AddKeyValue(Child_13[0], Child_13[1])
-tree.AddKeyValue(Child_14[0], Child_14[1])
-tree.AddKeyValue(Child_15[0], Child_15[1])
-tree.DeleteNodeByKey(10)
