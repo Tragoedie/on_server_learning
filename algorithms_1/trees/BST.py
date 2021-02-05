@@ -77,14 +77,20 @@ class BST:
             if node.Node.LeftChild is not None:
                 node.Node.LeftChild.Parent = node.Node.Parent
             if node.Node != self.Root:
-                node.Node.Parent.LeftChild = node.Node.LeftChild
+                if node.Node.Parent.LeftChild == node.Node:
+                    node.Node.Parent.LeftChild = node.Node.LeftChild
+                else:
+                    node.Node.Parent.RightChild = node.Node.LeftChild
             else:
                 self.Root = node.Node.LeftChild
         else:
             if node.Node.LeftChild is None:
                 node.Node.RightChild.Parent = node.Node.Parent
                 if node.Node != self.Root:
-                    node.Node.Parent.RightChild = node.Node.RightChild
+                    if node.Node.Parent.LeftChild == node.Node:
+                        node.Node.Parent.LeftChild = node.Node.RightChild
+                    else:
+                        node.Node.Parent.RightChild = node.Node.RightChild
                 else:
                     self.Root = node.Node.RightChild
             else:
@@ -93,12 +99,20 @@ class BST:
                     item = item.LeftChild
                 if item.RightChild is not None:
                     item.RightChild.Parent = item.Parent
-                    item.Parent.LeftChild = item.RightChild
+                    if item.Parent.LeftChild == item:
+                        item.Parent.LeftChild = item.RightChild
+                    else:
+                        item.Parent.RightChild = item.RightChild
                 item.Parent = node.Node.Parent
-                item.RightChild = node.Node.RightChild
-                item.LeftChild = node.Node.LeftChild
+                if node.Node.RightChild != item:
+                    item.RightChild = node.Node.RightChild
+                if node.Node.LeftChild != item:
+                    item.LeftChild = node.Node.LeftChild
                 if node.Node != self.Root:
-                    node.Node.Parent.RightChild = item
+                    if node.Node.Parent.LeftChild == node.Node:
+                        node.Node.Parent.LeftChild = item
+                    else:
+                        node.Node.Parent.RightChild = item
                 else:
                     self.Root = item
 
@@ -113,3 +127,53 @@ class BST:
         count += self.putNode(0, node.RightChild)
         return count
 
+    def DeleteNodeByKeyVer2(self, key):
+        node = self.FindNodeByKey(key);
+        if node.NodeHasKey is False:
+            return False
+        bIsRoot = self.Root == node.Node
+        bHasLeftChild = node.Node.LeftChild is not None
+        bHasRightChild = node.Node.RightChild is not None
+
+        if bHasLeftChild is False and bHasRightChild is False:
+            if bIsRoot is True:
+                self.Root = None
+            elif node.Node.Parent.LeftChild == node.Node:
+                node.Node.Parent.LeftChild = None
+            else:
+                node.Node.Parent.RightChild = None
+        elif bHasLeftChild is True and bHasRightChild is False:
+            node.Node.LeftChild.Parent = node.Node.Parent
+            if bIsRoot is False:
+                if node.Node.Parent.LeftChild == node.Node:
+                    node.Node.Parent.LeftChild = node.Node.LeftChild
+                else:
+                    node.Node.Parent.RightChild = node.Node.LeftChild
+            else:
+                self.Root = node.Node.LeftChild
+        elif bHasLeftChild is False and bHasRightChild is True:
+            node.Node.RightChild.Parent = node.Node.Parent
+            if bIsRoot is False:
+                if node.Node.Parent.LeftChild == node.Node:
+                    node.Node.Parent.LeftChild = node.Node.RightChild
+                else:
+                    node.Node.Parent.RightChild = node.Node.RightChild
+            else:
+                self.Root = node.Node.RightChild
+        else:
+            item = node.Node.RightChild
+            while item.LeftChild is not None:
+                item = item.LeftChild
+            if item.RightChild is not None:
+                item.RightChild.Parent = item.Parent
+                item.Parent.LeftChild = item.RightChild
+            item.Parent = node.Node.Parent
+            item.RightChild = node.Node.RightChild
+            item.LeftChild = node.Node.LeftChild
+            if bIsRoot is False:
+                if node.Node.Parent.LeftChild == node.Node:
+                    node.Node.Parent.LeftChild = item
+                else:
+                    node.Node.Parent.RightChild = item
+            else:
+                self.Root = item
