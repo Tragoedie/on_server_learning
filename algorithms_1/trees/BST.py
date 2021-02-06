@@ -95,6 +95,19 @@ class BST:
                     self.Root = node.Node.RightChild
             else:
                 item = node.Node.RightChild
+                if item.LeftChild == None:
+                    item.Parent = node.Node.Parent
+                    item.LeftChild = node.Node.LeftChild
+                    if node.Node.LeftChild is not None:
+                        node.Node.LeftChild.Parent = item
+                    if node.Node != self.Root:
+                        if node.Node.Parent.LeftChild == node.Node:
+                            node.Node.Parent.LeftChild = node.Node.RightChild
+                        else:
+                            node.Node.Parent.RightChild = node.Node.RightChild
+                    else:
+                        self.Root = node.Node.RightChild
+                    return
                 while item.LeftChild is not None:
                     item = item.LeftChild
                 if item.RightChild is not None:
@@ -127,3 +140,19 @@ class BST:
         count += self.putNode(0, node.RightChild)
         return count
 
+tree = BST(None)
+Child_1 = (20, 20)
+Child_2 = (10, 10)
+Child_3 = (7, 7)
+Child_4 = (16, 16)
+Child_5 = (18, 18)
+tree.AddKeyValue(Child_1[0], Child_1[1])
+tree.AddKeyValue(Child_2[0], Child_2[1])
+tree.AddKeyValue(Child_3[0], Child_3[1])
+tree.AddKeyValue(Child_4[0], Child_4[1])
+tree.AddKeyValue(Child_5[0], Child_5[1])
+tree.DeleteNodeByKey(10)
+tree.DeleteNodeByKey(7)
+tree.DeleteNodeByKey(20)
+tree.DeleteNodeByKey(18)
+tree.DeleteNodeByKey(16)
