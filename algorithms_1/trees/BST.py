@@ -72,7 +72,7 @@ class BST:
             return False
         if self.Count() == 1:
             self.Root = None
-            return
+            return True
         if node.Node.RightChild is None:
             if node.Node.LeftChild is not None:
                 node.Node.LeftChild.Parent = node.Node.Parent
@@ -107,7 +107,7 @@ class BST:
                             node.Node.Parent.RightChild = node.Node.RightChild
                     else:
                         self.Root = node.Node.RightChild
-                    return
+                    return True
                 while item.LeftChild is not None:
                     item = item.LeftChild
                 if item.RightChild is not None:
@@ -128,6 +128,7 @@ class BST:
                         node.Node.Parent.RightChild = item
                 else:
                     self.Root = item
+        return True
 
     def Count(self):
         return self.putNode(0, self.Root)
