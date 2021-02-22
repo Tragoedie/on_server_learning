@@ -7,13 +7,12 @@ class Heap:
 
     def MakeHeap(self, a, depth):
         if a == []:
-            return
+            return False
         self.HeapArray_maxsize = (2 ** (depth + 1) - 1)
         self.HeapArray = [None] * self.HeapArray_maxsize
-        array = sorted(a, reverse=True)
-        for i in range(len(array)):
-            self.HeapArray[i] = array[i]
-            self.HeapArray_size += 1
+        for item in a:
+            self.Add(item)
+        return True
 
     def GetMax(self):
         if self.HeapArray == []:
@@ -45,4 +44,3 @@ class Heap:
             self.HeapArray[index], self.HeapArray[(index - 1) // 2] = self.HeapArray[(index - 1) // 2], self.HeapArray[index]
             index = (index - 1) // 2
         return True
-
