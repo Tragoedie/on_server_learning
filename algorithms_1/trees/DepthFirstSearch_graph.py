@@ -47,13 +47,14 @@ class SimpleGraph:
         return True
 
     def DepthFirstSearch(self, VFrom, VTo):
-        begin, end = self.vertex.index(VFrom), self.vertex.index(VTo)
+        if VFrom < 0 or VFrom > self.max_vertex - 1 or VTo < 0 or VTo > self.max_vertex - 1:
+            return []
         stack_graph = []
         for v in self.vertex:
             v.Hit = False
-        self.vertex[begin].Hit = True
-        stack_graph.append(begin)
-        while stack_graph != [] and stack_graph[-1] != end:
+        self.vertex[VFrom].Hit = True
+        stack_graph.append(VFrom)
+        while stack_graph != [] and stack_graph[-1] != VTo:
             xchange = False
             for i in range(self.max_vertex):
                 if self.m_adjacency[stack_graph[-1]][i] == 1 and self.vertex[i].Hit is False:
