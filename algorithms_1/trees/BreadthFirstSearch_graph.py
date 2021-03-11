@@ -93,7 +93,7 @@ class SimpleGraph:
         index = VTo
         result = []
         while index is not None:
-            result.append(self.vertex[index].Value)
+            result.append(self.vertex[index])
             index = parent_array[index]
         result.reverse()
         return result
