@@ -98,3 +98,19 @@ class SimpleGraph:
         result.reverse()
         return result
 
+    def WeakVertices(self):
+        for v in self.vertex:
+            v.Hit = False
+        for i in range(self.max_vertex):
+            array_vertex = []
+            for j in range(len(self.m_adjacency[i])):
+                if self.m_adjacency[i][j] == 1 and self.vertex[j].Hit is False:
+                    array_vertex.append(j)
+            for h in range(len(array_vertex)):
+                for k in range(h + 1, len(array_vertex)):
+                    if self.IsEdge(array_vertex[h], array_vertex[k]) is True:
+                        self.vertex[i].Hit = True
+                        self.vertex[array_vertex[h]].Hit = True
+                        self.vertex[array_vertex[k]].Hit = True
+        return [self.vertex[i] for i in range(self.max_vertex) if self.vertex[i].Hit is False]
+
