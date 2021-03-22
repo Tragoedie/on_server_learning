@@ -14,3 +14,14 @@ def BubbleSortStep(array):
             xchange = False
     return xchange
 
+
+def InsertionSortStep(array, step, i):
+    for j in range(i, len(array), step):
+        key = array[j]
+        h = j - step
+        while h >= 0 and key < array[h]:
+            array[h + step] = array[h]
+            h -= step
+        array[h + step] = key
+    return array
+
