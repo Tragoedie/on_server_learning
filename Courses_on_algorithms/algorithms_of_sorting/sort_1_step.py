@@ -25,3 +25,13 @@ def InsertionSortStep(array, step, i):
         array[h + step] = key
     return array
 
+
+def KnuthSequence(array_size):
+    number = 1
+    array = []
+    while number <= array_size:
+        array.append(number)
+        number = 3 * number + 1
+    array.reverse()
+    return array
+
