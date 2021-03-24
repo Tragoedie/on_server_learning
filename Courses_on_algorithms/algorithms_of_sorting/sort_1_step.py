@@ -27,6 +27,8 @@ def InsertionSortStep(array, step, i):
 
 
 def KnuthSequence(array_size):
+    if array_size == 0:
+        return [1]
     number = 1
     array = []
     while number <= array_size:
