@@ -39,6 +39,8 @@ def KnuthSequence(array_size):
 
 
 def ArrayChunk(M):
+    if len(M) <= 1:
+        return 0
     N = len(M) // 2
     i_1 = 0
     i_2 = len(M) - 1
