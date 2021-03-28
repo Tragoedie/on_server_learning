@@ -37,3 +37,17 @@ def KnuthSequence(array_size):
     array.reverse()
     return array
 
+
+def ArrayChunk(M):
+    N = len(M) // 2
+    i_1 = 0
+    i_2 = len(M) - 1
+    while True:
+        while M[i_1] < N:
+            i_1 += 1
+        while M[i_2] > N:
+            i_2 -= 1
+        if i_1 == i_2 or (i_1 == (i_2 - 1) and M[i_1] < M[i_2]):
+            return N
+        M[i_1], M[i_2] = M[i_2], M[i_1]
+
