@@ -41,7 +41,8 @@ def KnuthSequence(array_size):
 def ArrayChunk(M):
     if len(M) <= 1:
         return 0
-    N = len(M) // 2
+    N = M[len(M) // 2]
+    index_N = len(M) // 2
     i_1 = 0
     i_2 = len(M) - 1
     while True:
@@ -49,7 +50,15 @@ def ArrayChunk(M):
             i_1 += 1
         while M[i_2] > N:
             i_2 -= 1
+        if i_1 == i_2 - 1 and M[i_1] > M[i_2]:
+            M[i_1], M[i_2] = M[i_2], M[i_1]
+            i_1 = 0
+            i_2 = len(M) - 1
+            continue
         if i_1 == i_2 or (i_1 == (i_2 - 1) and M[i_1] < M[i_2]):
-            return N
+            return index_N
         M[i_1], M[i_2] = M[i_2], M[i_1]
-
+        if M[i_1] == N:
+            index_N = i_1
+        elif M[i_2] == N:
+            index_N = i_2
