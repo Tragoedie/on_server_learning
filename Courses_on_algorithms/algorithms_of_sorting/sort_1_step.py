@@ -46,6 +46,10 @@ def ArrayChunk(M):
     i_1 = 0
     i_2 = len(M) - 1
     while True:
+        if M[i_1] == N:
+            index_N = i_1
+        elif M[i_2] == N:
+            index_N = i_2
         while M[i_1] < N:
             i_1 += 1
         while M[i_2] > N:
@@ -58,7 +62,4 @@ def ArrayChunk(M):
         if i_1 == i_2 or (i_1 == (i_2 - 1) and M[i_1] < M[i_2]):
             return index_N
         M[i_1], M[i_2] = M[i_2], M[i_1]
-        if M[i_1] == N:
-            index_N = i_1
-        elif M[i_2] == N:
-            index_N = i_2
+
