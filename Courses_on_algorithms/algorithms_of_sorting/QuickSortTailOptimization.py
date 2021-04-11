@@ -10,14 +10,18 @@ def ArrayChunk(M, left, right):
             i_2 -= 1
         if i_1 == i_2 - 1 and M[i_1] > M[i_2]:
             M[i_1], M[i_2] = M[i_2], M[i_1]
-            return ArrayChunk(M, left, right)
-        if i_1 == i_2 or (i_1 == i_2 - 1 and M[i_1] < M[i_2]):
+            index_N = (right - left + 1) // 2 + left
+            N = M[index_N]
+            i_1 = 0
+            i_2 = len(M) - 1
+            continue
+        if i_1 == i_2 or (i_1 == (i_2 - 1) and M[i_1] < M[i_2]):
             return index_N
         M[i_1], M[i_2] = M[i_2], M[i_1]
         if M[i_1] == N:
-            index_N = i_2
-        elif M[i_2] == N:
             index_N = i_1
+        elif M[i_2] == N:
+            index_N = i_2
 
 
 def QuickSortTailOptimization(array, left, right):
