@@ -27,6 +27,10 @@ def ArrayChunk(M, left, right):
 def QuickSortTailOptimization(array, left, right):
     while left < right:
         index = ArrayChunk(array, left, right)
-        QuickSortTailOptimization(array, left, index - 1)
-        left = index + 1
+        if (index - left) < (right - index):
+            QuickSortTailOptimization(array, left, index - 1)
+            left = index + 1
+        else:
+            QuickSortTailOptimization(array, index + 1, right)
+            right = index - 1
 
