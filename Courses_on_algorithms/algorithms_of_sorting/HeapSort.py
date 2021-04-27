@@ -55,6 +55,8 @@ class Heap:
                 self.HeapArray[index], self.HeapArray[2 * index + 2] = self.HeapArray[2 * index + 2], self.HeapArray[
                     index]
                 index = 2 * index + 2
+        if self.HeapArray_size == 2 and self.HeapArray[0] < self.HeapArray[1]:
+            self.HeapArray[0], self.HeapArray[1] = self.HeapArray[1], self.HeapArray[0]
         return elem
 
     def Add(self, key):
@@ -68,3 +70,4 @@ class Heap:
                 index]
             index = (index - 1) // 2
         return True
+
