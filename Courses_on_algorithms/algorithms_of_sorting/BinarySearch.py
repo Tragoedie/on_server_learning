@@ -2,13 +2,13 @@ class BinarySearch:
 
     def __init__(self, array):
         self.arr = array
-        self.left = 0
-        self.right = len(self.arr) - 1
+        self.Left = 0
+        self.Right = len(self.arr) - 1
         self.search_off = False
         self.end = False
 
     def Step(self, N):
-        center = (self.left + self.right) // 2
+        center = (self.Left + self.Right) // 2
         if len(self.arr) == 0 or (len(self.arr) == 1 and self.arr[0] != N):
             self.end = True
         if self.end:
@@ -21,7 +21,7 @@ class BinarySearch:
             self.arr = self.arr[0:center]
         else:
             self.arr = self.arr[center + 1:]
-        self.right = len(self.arr) - 1
+        self.Right = len(self.arr) - 1
         self.Step(N)
 
     def GetResult(self):
