@@ -76,8 +76,6 @@ class Test_Deque(unittest.TestCase):
         bin_search.Step(49)
         self.assertEqual(bin_search.Left, 48)
         self.assertEqual(bin_search.Right, 48)
-        self.assertEqual(bin_search.GetResult(), 0)
-        bin_search.Step(49)
         self.assertEqual(bin_search.GetResult(), 1)
 
 
