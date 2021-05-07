@@ -25,8 +25,8 @@ class BinarySearch:
         self.Step(N)
 
     def GetResult(self):
-        if self.search_off == True:
+        if self.search_off is True:
             return 1
-        if self.end == True:
+        if self.end is True:
             return -1
         return 0
