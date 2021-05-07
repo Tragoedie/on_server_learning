@@ -9,20 +9,17 @@ class BinarySearch:
 
     def Step(self, N):
         center = (self.Left + self.Right) // 2
-        if len(self.arr) == 0 or (len(self.arr) == 1 and self.arr[0] != N):
+        if self.arr == [] or (self.Right - self.Left <= 1 and self.arr[center] != N):
             self.end = True
-        if self.end:
             return
         if self.arr[center] == N:
             self.search_off = True
             self.end = True
             return
         elif N < self.arr[center]:
-            self.arr = self.arr[0:center]
+            self.Right = center - 1
         else:
-            self.arr = self.arr[center + 1:]
-        self.Right = len(self.arr) - 1
-        self.Step(N)
+            self.Left = center + 1
 
     def GetResult(self):
         if self.search_off is True:
