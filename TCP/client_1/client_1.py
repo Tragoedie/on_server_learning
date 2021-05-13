@@ -17,7 +17,7 @@ nick = input('Enter your nickname:')  # ввод псевдонима
 tcp_socket = socket(AF_INET, SOCK_DGRAM)  # создание сокета
 tcp_socket.bind(('', 0))
 tcp_socket.sendto((nick + ' Connect to server').encode('utf-8'), server)  # уведомление сервера о подключении
-potok = threading.Thread(target=read_sok)  # создание потока, для функции према сообщений сервера
+potok = threading.Thread(target=read_sok)  # создание потока, для функции приема сообщений сервера
 potok.start()  # старт потока
 while True:
     message = input('Enter your message or Exit:')  # ввод сообщения
