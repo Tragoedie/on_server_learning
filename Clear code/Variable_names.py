@@ -1,4 +1,4 @@
-list_number - arrayOfRandomNumbers (array_of_random_numbers) \\ массив случайных значениц
+list_number - arrayOfRandomNumbers (array_of_random_numbers) \\ массив случайных значений
 sum - sumOfAllNumbers (sum_of_all_numbers) \\ сумма всех значений массива
 b - arrayOfNodesMatchingTag (array_of_nodes_matching_tag) \\массив узлов с подходящим тегом
 counter - counterOfNodes (counter_of_nodes)\\ счетчик количества узлов
