@@ -14,7 +14,7 @@
         2) resIndexArrayChunk
         3) HeapObject
 
-6.4. -  1) sumOfAllNumberFirstFile -> sumAllNumber1stFile 8-20
+6.4. -  1) sumOfAllNumberFirstFile -> sumAllNumber1stFile
         2) threadForMessageReceiving -> receivingThread
         3) arrayOfCompletedAndAllTasks -> dictUserTasks
         4) arrayOfNodesMatchingTag -> nodesMatchingTag
