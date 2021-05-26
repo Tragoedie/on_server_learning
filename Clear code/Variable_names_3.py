@@ -1,4 +1,4 @@
-7.1. -  1) change -> was_swa ped
+7.1. -  1) change -> was_swaped
         2) change -> new_user_found
         3) xchange -> has_edge
         4) change -> is_ascending
