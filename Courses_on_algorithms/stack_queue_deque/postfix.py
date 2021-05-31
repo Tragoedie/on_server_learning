@@ -1,4 +1,4 @@
-from on_server_learning.algorithms_1.stack_queue_deque.Stack import *
+from on_server_learning.Courses_on_algorithms.stack_queue_deque.Stack import *
 
 
 def is_number(s):
