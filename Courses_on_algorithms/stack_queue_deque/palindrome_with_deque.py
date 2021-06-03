@@ -1,4 +1,4 @@
-from on_server_learning.algorithms_1.stack_queue_deque.deque_linked_list import *
+from on_server_learning.Courses_on_algorithms.stack_queue_deque.deque_linked_list import *
 
 
 def palindrome_or_not(line):

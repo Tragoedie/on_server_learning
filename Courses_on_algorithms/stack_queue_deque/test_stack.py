@@ -1,5 +1,5 @@
 import unittest
-from on_server_learning.algorithms_1.stack_queue_deque.Stack import *
+from on_server_learning.Courses_on_algorithms.stack_queue_deque.Stack import *
 
 
 class Test_Stack(unittest.TestCase):

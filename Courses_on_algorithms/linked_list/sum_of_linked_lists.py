@@ -1,5 +1,5 @@
-from on_server_learning.algorithms_1.linked_list.work_linked_list import Node
-from on_server_learning.algorithms_1.linked_list.work_linked_list import LinkedList
+from on_server_learning.Courses_on_algorithms.linked_list.work_linked_list import Node
+from on_server_learning.Courses_on_algorithms.linked_list.work_linked_list import LinkedList
 
 
 def massive_of_value(s_list):
