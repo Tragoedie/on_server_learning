@@ -1,7 +1,6 @@
-def WordSearch(ilen, s, subs):
+def FillArray(ilen, s, work_massive):
     line = list(s)
     work_line = []
-    work_massive = []
     while len(line) > ilen:
         xchange = 0
         for i in range(ilen, 0, -1):
@@ -23,6 +22,10 @@ def WordSearch(ilen, s, subs):
             work_line = []
     line = ''.join(line)
     work_massive.append(line)
+
+def WordSearch(ilen, s, subs):
+    work_massive = []
+    FillArray(ilen, s, work_massive)
     #print(work_massive)
     line_outcome = []
     for x in range(len(work_massive)):

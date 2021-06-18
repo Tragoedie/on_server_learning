@@ -1,13 +1,4 @@
-def SherlockValidString(s):
-    s = list(s)
-    change = True
-    while change:
-        change = False
-        for x in range(len(s)-1):
-            if s[x] > s[x+1]:
-                s[x], s[x+1] = s[x+1], s[x]
-                change = True
-    work_massive = []
+def FillArray(s, work_massive):
     while len(s) > 1:
         block = [s[0]]
         s.pop(0)
@@ -21,6 +12,21 @@ def SherlockValidString(s):
         work_massive.append(block)
     if len(s) != 0:
         work_massive.append(s)
+
+def SortArray(s):
+    change = True
+    while change:
+        change = False
+        for x in range(len(s) - 1):
+            if s[x] > s[x + 1]:
+                s[x], s[x + 1] = s[x + 1], s[x]
+                change = True
+
+def SherlockValidString(s):
+    s = list(s)
+    SortArray(s)
+    work_massive = []
+    FillArray(s, work_massive)
     counter = -1
     if len(work_massive) == 1:
         return True

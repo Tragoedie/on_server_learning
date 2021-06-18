@@ -1,6 +1,4 @@
-def SynchronizingTables(N, ids, salary):
-    ids_copy = ids.copy()
-    salary_copy = salary.copy()
+def ReplaceIDs(ids_copy, N):
     x_change = True
     while x_change:
         x_change = False
@@ -8,6 +6,8 @@ def SynchronizingTables(N, ids, salary):
             if ids_copy[i] > ids_copy[i + 1]:
                 ids_copy[i], ids_copy[i + 1] = ids_copy[i + 1], ids_copy[i]
                 x_change = True
+
+def ReplaceSalaries(salary_copy, N):
     y_change = True
     while y_change:
         y_change = False
@@ -15,6 +15,12 @@ def SynchronizingTables(N, ids, salary):
             if salary_copy[j] > salary_copy[j + 1]:
                 salary_copy[j], salary_copy[j + 1] = salary_copy[j + 1], salary_copy[j]
                 y_change = True
+
+def SynchronizingTables(N, ids, salary):
+    ids_copy = ids.copy()
+    salary_copy = salary.copy()
+    ReplaceIDs(ids_copy, N)
+    ReplaceIDs(salary_copy, N)
     for x in range(N):
         for y in range(N):
             if ids_copy[x] == ids[y]:

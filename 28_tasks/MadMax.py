@@ -1,11 +1,14 @@
-def MadMax(N, Tele):
+def MixTele(N, Tele):
     x_change = True
     while x_change:
         x_change = False
-        for i in range(N-1):
-            if Tele[i] > Tele[i+1]:
-                Tele[i], Tele[i+1] = Tele[i+1], Tele[i]
+        for i in range(N - 1):
+            if Tele[i] > Tele[i + 1]:
+                Tele[i], Tele[i + 1] = Tele[i + 1], Tele[i]
                 x_change = True
+
+def MadMax(N, Tele):
+    MixTele(N, Tele)
     #print(Tele)
     Tele[N//2], Tele[N-1] = Tele[N-1], Tele[N//2]
     #print(Tele)

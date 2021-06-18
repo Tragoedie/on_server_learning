@@ -1,3 +1,43 @@
+def CountNumOfIdentProducts(item_s, amount_s):
+    change = False
+    while change is False:  # count the number of identical products
+        change = True
+        for i in range(len(item_s) - 1):
+            for j in range(1 + i, len(item_s)):
+                if item_s[i] == item_s[j]:
+                    change = False
+                    amount_s[i][0] = int(amount_s[i][0]) + int(amount_s[j][0])
+                    amount_s.pop(j)
+                    item_s.pop(j)
+                    break
+
+def sort_quantity_asc(item_s, amount_s):
+    change = False
+    while change is False:  # sort quantity in ascending order
+        change = True
+        for i in range(len(amount_s) - 1):
+            if amount_s[i] < amount_s[i + 1]:
+                change = False
+                amount_s[i], amount_s[i + 1] = amount_s[i + 1], amount_s[i]
+                item_s[i], item_s[i + 1] = item_s[i + 1], item_s[i]
+
+def sort_products_lexic_asc(item_s, amount_s):
+    begin = 0
+    end = 0
+    for x in range(1, len(amount_s)):  # sorting products in lexicographic ascending order
+        if amount_s[begin] == amount_s[x]:
+            end = x
+        if amount_s[begin] != amount_s[x] or end == len(amount_s) - 1:
+            if end != 0:
+                change = False
+                while change is False:
+                    for i in range(begin, end):
+                        change = True
+                        if item_s[i] > item_s[i + 1]:
+                            item_s[i], item_s[i + 1] = item_s[i + 1], item_s[i]
+                            change = False
+                end = 0
+            begin = x
 def ShopOLAP(N, items):
     if N == 1:
         return items
@@ -26,41 +66,9 @@ def ShopOLAP(N, items):
             amount_item = [int(amount_item[0])]
             amount_s.append(amount_item)
         item_s.append(work_item)
-    change = False
-    while change is False:  # count the number of identical products
-        change = True
-        for i in range(len(item_s)-1):
-            for j in range(1 + i, len(item_s)):
-                if item_s[i] == item_s[j]:
-                    change = False
-                    amount_s[i][0] = int(amount_s[i][0]) + int(amount_s[j][0])
-                    amount_s.pop(j)
-                    item_s.pop(j)
-                    break
-    change = False
-    while change is False:  # sort quantity in ascending order
-        change = True
-        for i in range(len(amount_s) - 1):
-            if amount_s[i] < amount_s[i + 1]:
-                change = False
-                amount_s[i], amount_s[i + 1] = amount_s[i + 1], amount_s[i]
-                item_s[i], item_s[i + 1] = item_s[i + 1], item_s[i]
-    begin = 0
-    end = 0
-    for x in range(1, len(amount_s)):  # sorting products in lexicographic ascending order
-        if amount_s[begin] == amount_s[x]:
-            end = x
-        if amount_s[begin] != amount_s[x] or end == len(amount_s) - 1:
-            if end != 0:
-                change = False
-                while change is False:
-                    for i in range(begin, end):
-                        change = True
-                        if item_s[i] > item_s[i + 1]:
-                            item_s[i], item_s[i + 1] = item_s[i + 1], item_s[i]
-                            change = False
-                end = 0
-            begin = x
+    CountNumOfIdentProducts(item_s, amount_s)
+    sort_quantity_asc(item_s, amount_s)
+    sort_products_lexic_asc(item_s, amount_s)
     result = []
     for i in range(len(amount_s)):  # creating the resulting string
         b = []

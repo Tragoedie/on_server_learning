@@ -1,11 +1,14 @@
-def MassVote(N, Votes):
+def CalcPercentage(N, Votes, percent_votes):
     summ_votes = 0
     for i in range(N):
         summ_votes += Votes[i]
-    percent_votes = []
     for j in range(N):
         percent = Votes[j] / summ_votes * 100
         percent_votes.append(percent)
+
+def MassVote(N, Votes):
+    percent_votes = []
+    CalcPercentage(N, Votes, percent_votes)
     max_votes = percent_votes[0]
     for x in range(1, N):
         if percent_votes[x] > max_votes:

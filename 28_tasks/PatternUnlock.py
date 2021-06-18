@@ -1,4 +1,4 @@
-def PatternUnlock(N, hits):
+def GetCode(N, hits):
     s_line = 0
     for i in range(N-1):
         if hits[i] == 2 and (hits[i+1] == 9 or hits[i+1] == 7 or hits[i+1] == 4 or hits[i+1] == 6):
@@ -19,11 +19,10 @@ def PatternUnlock(N, hits):
         if (hits[i] == 1 or hits[i] == 8 or hits[i] == 3 or hits[i] == 5) and (hits[i+1] == 6 or hits[i+1] == 9 or hits[i+1] == 7 or hits[i+1] == 4):
             s_line += 1
             continue
-    # print(s_line)
-    s_line = round(s_line, 5)
-    # print(s_line)
-    code = str(s_line)
-    code = list(code)
+    return list(str(round(s_line, 5)))
+
+def PatternUnlock(N, hits):
+    code = GetCode(N, hits)
     # print(code)
     x = 0
     while x < len(code):

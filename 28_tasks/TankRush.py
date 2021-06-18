@@ -1,7 +1,5 @@
-def TankRush(H1, W1, S1, H2, W2, S2):
+def SplitMap(S1, map):
     massive = []
-    map = []
-    tank = []
     for a in range(len(S1)):
         if S1[a] != ' ':
             massive.append(S1[a])
@@ -9,6 +7,8 @@ def TankRush(H1, W1, S1, H2, W2, S2):
             map.append(massive)
             massive = []
     map.append(massive)
+
+def SplitTank(S2, tank):
     massive = []
     for b in range(len(S2)):
         if S2[b] != ' ':
@@ -17,6 +17,12 @@ def TankRush(H1, W1, S1, H2, W2, S2):
             tank.append(massive)
             massive = []
     tank.append(massive)
+
+def TankRush(H1, W1, S1, H2, W2, S2):
+    map = []
+    SplitMap(S1, map)
+    tank = []
+    SplitTank(S2, tank)
     print(map)
     print(tank)
     xchange = False

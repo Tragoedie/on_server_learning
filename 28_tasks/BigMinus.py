@@ -1,22 +1,25 @@
-def BigMinus(s1, s2):
-    list_1 = list(s1)
-    list_2 = list(s2)
-    max_number = []
-    min_number = []
+def SetMinMax(first_num, second_num, max_num, min_num):
+    list_1 = list(first_num)
+    list_2 = list(second_num)
     if len(list_1) > len(list_2):
-        max_number = list_1
-        min_number = list_2
+        max_num = list_1
+        min_num = list_2
     elif len(list_2) > len(list_1):
-        max_number = list_2
-        min_number = list_1
+        max_num = list_2
+        min_num = list_1
     else:
-        max_number = list_1
-        min_number = list_2
+        max_num = list_1
+        min_num = list_2
         for j in range(len(list_1)):
             if int(list_2[j]) > int(list_1[j]):
-                max_number = list_2
-                min_number = list_1
+                max_num = list_2
+                min_num = list_1
                 break
+
+def BigMinus(s1, s2):
+    max_number = []
+    min_number = []
+    SetMinMax(s1, s2, max_number, min_number)
     difference = []
     xchange = False
     for i in range(0, len(min_number)):

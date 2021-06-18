@@ -1,4 +1,4 @@
-def MaximumDiscount(N, price):
+def RemixPrices(N, price):
     x_change = True
     while x_change:
         x_change = False
@@ -6,6 +6,9 @@ def MaximumDiscount(N, price):
             if price[i] < price[i + 1]:
                 price[i], price[i + 1] = price[i + 1], price[i]
                 x_change = True
+
+def MaximumDiscount(N, price):
+    RemixPrices(N, price)
     print(price)
     sum_discount = 0
     for j in range(N):
