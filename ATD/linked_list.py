@@ -16,7 +16,9 @@ class LinkedList:
     # конструктор
     # постусловие: создан новый пустой Linked List
     def __init__(self):
-        pass
+        self.head  # первый узел
+        self.next  # последний узел
+        self.cursor  # статус курсора
 
     # команды:
     # предусловие: список не пустой.
