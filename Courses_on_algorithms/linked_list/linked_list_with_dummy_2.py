@@ -1,5 +1,5 @@
-from on_server_learning.algorithms_1.linked_list.work_linked_list_2 import Node
-from on_server_learning.algorithms_1.linked_list.work_linked_list_2 import LinkedList2
+from on_server_learning.Courses_on_algorithms.linked_list.work_linked_list_2 import Node
+from on_server_learning.Courses_on_algorithms.linked_list.work_linked_list_2 import LinkedList2
 
 
 class Node_with_fake(Node):
