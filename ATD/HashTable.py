@@ -84,9 +84,11 @@ class HashTable:
         slot_seek = slot
         while self.slots[slot_seek] is not None:
             if self.slots[slot_seek] == value:
+                self.find_status = HashTable.STATUS_OK
                 return slot_seek
             slot_seek = self.next_index(slot_seek)
             if slot_seek == slot:
+                self.find_status = HashTable.STATUS_ERR
                 break
         return None
 
