@@ -72,14 +72,14 @@ class HashTable:
         return None
 
     def remove(self, value):
-        index_slot = self.find(value)
+        index_slot = self.get(value)
         if index_slot is not None:
             self.slots[index_slot] = None
             self.remove_status = HashTable.STATUS_OK
         else:
             self.remove_status = HashTable.STATUS_ERR
 
-    def find(self, value):
+    def get(self, value):
         slot = self.hash_fun(value)
         slot_seek = slot
         while self.slots[slot_seek] is not None:
@@ -98,5 +98,5 @@ class HashTable:
     def get_remove_status(self):
         return self.remove_status
 
-    def get_find_status(self):
+    def get_get_status(self):
         return self.find_status
