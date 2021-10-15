@@ -15,12 +15,12 @@ class PowerSet(HashTable):
         pass
 
     # запросы:
-    # создано новое множество, содержащее в себе пересечение множеств.
-    def intersection(self, set2):
-        pass
-
     # количество элементов в таблице
     def size(self):
+        pass
+
+    # создано новое множество, содержащее в себе пересечение множеств.
+    def intersection(self, set2):
         pass
 
     # создано новое множество, содержащее в себе объединение множеств.
@@ -49,6 +49,9 @@ class PowerSet(HashTable):
             self.slots[empty_slot] = value
             self.put_status = HashTable.STATUS_OK
         self.put_status = HashTable.STATUS_ERR
+
+    def size(self):
+        return self.size
 
     def intersection(self, set2):
         intersection_set = PowerSet()
