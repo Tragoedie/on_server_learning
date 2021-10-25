@@ -1,4 +1,4 @@
-from on_server_learning.ATD.HashTable import HashTable
+from on_server_learning.ATD.part_1.HashTable import HashTable
 
 
 # ATD PowerSet
