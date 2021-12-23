@@ -29,4 +29,4 @@ if x is None:
 
 # AttributeError: 'NoneType' object has no attribute 'print_val'
 y = InheritanceAttempt()
-y.print_val()
+#y.print_val()

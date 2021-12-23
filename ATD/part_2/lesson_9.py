@@ -4,12 +4,10 @@ class General(object):
         self.str_field = ''
         self.array_field = []
 
-    def __init__(self, crObject):
-        self.CopyFrom(crObject)
+    #def __init__(self, crObject):
+        #self.CopyFrom(crObject)
 
     def CopyFrom(self, crObject):
-        if type(crObject) != General:
-            return
         self.int_field = crObject.int_field
         self.str_field = crObject.str_field
         self.array_field = crObject.array_field
