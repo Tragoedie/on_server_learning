@@ -1,14 +1,5 @@
+import on_server_learning.Architectures_highload_systems.Clear_architecture.lesson_4_constants as const
 from math import sin, cos, radians
-
-WATER = 'water'
-SOAP = 'soap'
-BRUSH = 'brush'
-
-MOVE = 'move'
-TURN = 'turn'
-SET = 'set'
-START = 'start'
-STOP = 'stop'
 
 
 class RobotJanitor:
@@ -27,7 +18,7 @@ class RobotJanitor:
         self.angle += angle
         print('ANGLE {0}'.format(self.angle))
 
-    def __set(self, state=WATER):
+    def __set(self, state=const.WATER):
         self.state = state
         print('STATE ', state)
 
@@ -43,40 +34,29 @@ class RobotJanitor:
     def execute(self, *command_string):
         for command in command_string:
             command_args = command.split()
-            if command_args[0] == MOVE:
+            if command_args[0] == const.MOVE:
                 move_distance = command_args[1]
                 try:
                     val = float(move_distance)
                     self.__move(val)
                 except ValueError:
                     print('Wrong move distance - {0}!'.format(move_distance))
-            elif command_args[0] == TURN:
+            elif command_args[0] == const.TURN:
                 turn_angle = command_args[1]
                 try:
                     val = int(turn_angle)
                     self.__turn(val)
                 except ValueError:
                     print('Wrong turn angle - {0}!'.format(turn_angle))
-            elif command_args[0] == SET:
+            elif command_args[0] == const.SET:
                 state = command_args[1]
-                if state != WATER and state != BRUSH and state != SOAP:
+                if state != const.WATER and state != const.BRUSH and state != const.SOAP:
                     print('Wrong state - {0}!'.format(state))
                 else:
                     self.__set(state)
-            elif command_args[0] == START:
+            elif command_args[0] == const.START:
                 self.__start()
-            elif command_args[0] == STOP:
+            elif command_args[0] == const.STOP:
                 self.__stop()
             else:
                 print('Unknown command - {0}!'.format(command))
-
-
-robot = RobotJanitor()
-robot.execute('move 100', 'turn -90', 'set soap', 'start', 'move 50', 'stop')
-
-# Плюсы решения по процедурному стилю:
-# 1) Более эффективный код
-# 2) Простота использования
-# Минусы:
-# 1) Нулевая расширяемость в виду монолитности решения
-# 2) Невозможность использования нескольких последовательностей команд
