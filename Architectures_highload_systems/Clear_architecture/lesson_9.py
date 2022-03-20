@@ -38,5 +38,4 @@ class RobotApi:
 if __name__ == "__main__":
     api = RobotApi()
     api.setup(get_maker(pr.transfer_to_cleaner))
-
-api(('move 100', 'turn -90', 'set soap', 'start', 'move 50', 'stop'))
+    api(('move 100', 'turn -90', 'set soap', 'start', 'move 50', 'stop'))
