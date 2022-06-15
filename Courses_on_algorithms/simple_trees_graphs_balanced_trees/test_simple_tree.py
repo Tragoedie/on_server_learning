@@ -1,5 +1,5 @@
 import unittest
-from on_server_learning.algorithms_1.trees.simple_tree import *
+from on_server_learning.Courses_on_algorithms.simple_trees_graphs_balanced_trees.simple_tree import *
 import collections
 
 
