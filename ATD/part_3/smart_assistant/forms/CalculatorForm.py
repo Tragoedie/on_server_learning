@@ -4,15 +4,15 @@ from tkinter import *
 class Calculator:
 
     def __init__(self):
-        self.windows = Tk()
-        self.windows.geometry("312x324")
-        self.windows.resizable(0, 0)
-        self.windows.title("Calculator")
+        self.win_calc = Tk()
+        self.win_calc.geometry("312x324")
+        self.win_calc.resizable(0, 0)
+        self.win_calc.title("Calculator")
 
         self.expression = ""
         self.input_text = StringVar()
         self.input_frame = Frame(
-            self.windows,
+            self.win_calc,
             width=312,
             height=50,
             bd=0,
@@ -33,7 +33,7 @@ class Calculator:
         self.input_field.grid(row=0, column=0)
         self.input_field.pack(ipady=10)
 
-        self.btns_frame = Frame(self.windows, width=312, height=272.5, bg="grey")
+        self.btns_frame = Frame(self.win_calc, width=312, height=272.5, bg="grey")
         self.btns_frame.pack()
         self.clear = Button(self.btns_frame, text="C", fg="black", width=10, height=3, bd=0, bg="#eee", cursor="hand2",
                             command=lambda: self.bt_clear())
@@ -103,7 +103,7 @@ class Calculator:
         self.equals = Button(self.btns_frame, text="=", fg="black", width=10, height=3, bd=0, bg="#eee", cursor="hand2",
                              command=lambda: self.bt_equal())
         self.equals.grid(row=4, column=3, padx=1, pady=1)
-        self.windows.mainloop()
+        self.win_calc.mainloop()
 
     def btn_click(self, item):
         self.expression = self.expression + str(item)

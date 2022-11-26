@@ -52,6 +52,3 @@ class AlarmClockForm:
 
     def AddAlarm(self):
         AlarmAdd()
-
-
-test = AlarmClockForm()
