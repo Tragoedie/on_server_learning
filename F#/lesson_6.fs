@@ -15,7 +15,6 @@ let rec isIthChar(s:string, n:int, c:char) = match n with
 //17.4.3. Напишите функцию occFromIth: string * int * char -> int, где occFromIth(s,n,c) возвращает количество вхождений символа с в строке s, начиная с позиции n.
 
 let rec occFromIth(s:string, n:int, c:char) = match n with
- | j when j < 0 || j >= s.Length -> 0
- | len when len = String.length s -> 0
+ | len when len < 0 || len >= String.length s -> 0
  | i when s.[i] = c ->  occFromIth (s, n+1, c) + 1
  | _ -> occFromIth (s, n+1, c)
