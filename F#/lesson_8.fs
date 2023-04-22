@@ -5,6 +5,6 @@ uncurry g -- это функция f, где f(x,y) -- это значение h y для функции h = g x.
 Напишите их реализации.
 *)
 
-let curry f = function x y -> f(x, y)
+let curry f = function x -> (function y -> f(x, y))
 
 let uncurry f = function (x, y) -> f x y
