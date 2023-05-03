@@ -25,8 +25,9 @@ printf "%A" result*)
 let rec evenn = function
  | 1 -> [0]
  | n when n < 0 -> []
- | n -> evenn(n - 2) @ [n]
+ | n when n % 2 = 0 -> evenn(n - 2) @ [n]
+ | n -> evenn(n - 1)
 
-(*let result = evenn -5
+(*let result = evenn 5
 printf "%A" result*)
 
