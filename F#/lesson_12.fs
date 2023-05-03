@@ -15,7 +15,7 @@ printf "%A" result*)
 let rec dnto =function
  | 1 -> [1]
  | n when n < 1 -> []
- | n -> n :: upto(n - 1)
+ | n -> n :: dnto(n - 1)
 
 (*let result = dnto 20
 printf "%A" result*)
