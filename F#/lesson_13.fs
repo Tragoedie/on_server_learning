@@ -44,7 +44,7 @@ zip ([x1; x2; ...], [y1; y2; ...]) = [(x1,y1); (x2,y2); ...]
 let rec zip (xs1,xs2) = 
  if List.length xs1 <> List.length xs2 then failwith "Different lengths of lists"
  else match (xs1, xs2) with 
-  | ([], []) ->  [] 
+  | ([], []) -> [] 
   | (head1 :: tail1, head2 :: tail2) -> (head1, head2) :: zip (tail1, tail2)
 
 (*let result = zip ([5; 2; 4], [0])
