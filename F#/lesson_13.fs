@@ -32,7 +32,7 @@ let rec rmodd_2 = function
  | [x] -> [x] 
  | _ -> []
 
-let rec split = function xs -> (rmodd xs, rmodd_2 xs) 
+let rec split = function xs -> (rmodd_2 xs, rmodd xs) 
 
 (*let result = split [-1; 0; 1; 2; 3; 7]
 printf "%A" result*)
